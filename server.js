@@ -32,7 +32,7 @@ app.use(express.static("public"));
 //
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/nyt", { useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nyt", { useNewUrlParser: true });
 
 // Routes
 require("./controllers/apiRoutes.js")(app);
